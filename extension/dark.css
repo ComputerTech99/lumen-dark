@@ -1,0 +1,26 @@
+/* ---- Frame-level flips (decided per frame by content.js) ------------ */
+html.lumen-filter { filter: invert(1) hue-rotate(180deg); }
+html.lumen-app.lumen-filter { background: #fff !important; }
+html.lumen-top {
+  filter: invert(1) hue-rotate(180deg) contrast(0.9);
+  background: #fff !important;
+}
+
+/* ---- Anything shown inverted (D2L interface) ------------------------
+   Flip media and strongly coloured blocks back to their real colours. */
+html.lumen-inv :is(img, video, picture, canvas, [style*="background-image"]),
+html.lumen-inv .lumen-keep {
+  filter: invert(1) hue-rotate(180deg);
+}
+html.lumen-inv .lumen-keep :is(img, video, picture, canvas, [style*="background-image"]) {
+  filter: none;
+}
+
+/* ---- Lesson content (recoloured element by element) ----------------- */
+html.lumen-content {
+  background: #141418 !important;
+  color-scheme: dark;
+}
+/* Hide a lesson for the instant before it's recoloured, so it never
+   flashes white. */
+html.lumen-pending { opacity: 0 !important; }
